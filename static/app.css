@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
+
+body {
+    background-color: #FFEC89;
+}
+
+button {
+    padding: 20px;
+    background-color: #00E0FF;
+    color: white;
+    font-family: 'Chilanka';
+    font-size: 2rem;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 15px 15px 45px 0px #00000036, 0 0 0 3px #ffffff, 0 -2px 0 7px #B9FFF7;
+}
