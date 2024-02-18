@@ -3,7 +3,7 @@
 
 
     const messages = [
-        "I would like a tasty treat",
+        "Would you like a delightful little treat?",
         "If you're close we can bring you one.",
         "What's your zip?",
         "Hooray! Tell us where to bring your delightful little treat!",
@@ -27,6 +27,7 @@
 </script>
 
 <button on:click={showNextMessage}>{currentMessage}</button>
-<p>TREATS_AVAILABLE: {TREATS_AVAILABLE}</p>
-<p>currentMessage: {currentMessage}</p>
-<p>currentMessageIndex: {currentMessageIndex}</p>
+
+<style>
+
+</style>
