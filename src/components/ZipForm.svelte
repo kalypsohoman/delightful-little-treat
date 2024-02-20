@@ -29,7 +29,7 @@
 </script>
 
 <form on:submit|preventDefault={validateZip}>
-    <label for="zip"></label>
+    <label for="zip">Zip:</label>
     <input name="zip" bind:value={zip}/>
     <button type="submit">{buttonText}</button>
 </form>
