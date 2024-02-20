@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Chilanka&family=Delius&display=swap');
 
 
 :root {
@@ -63,4 +63,36 @@ ul {
     color: white;
     font-family: 'Chilanka', sans-serif;
     font-size: 1.7rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+    border: solid 10px white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    font-family: Delius;
+    padding: 10px;
+    font-size: 16px;
+    border:  solid 7px #FFD600;
+    border-radius: 4px;
+    outline-color: #495057;
+}
+
+input:focus {
+    /* border-color: #ffbb00; */
+    /* box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
+}
+
+label {
+    font-family: Chilanka;
+    font-size: 16px;
+    color: #495057;
 }
