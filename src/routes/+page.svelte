@@ -38,7 +38,6 @@ TODO:
     };
 
     function progressThroughResponses(){
-        console.log("progressThroughResponses", currentView)
        if (currentViewIndex >= 4) {
             makeConfetti();
             return;
