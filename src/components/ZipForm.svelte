@@ -26,7 +26,7 @@
     let buttonText = "➜"
     
     export let zip:string;
-    export let handleSubmit;
+    export let handleSubmit:Function;
 </script>
 
 <form on:submit|preventDefault={validateZip}>
