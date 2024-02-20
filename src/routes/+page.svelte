@@ -8,7 +8,7 @@ TODO:
 6. Issue form?
 -->
 
-<script>
+<script lang="ts">
     import { TREATS_AVAILABLE , ZIP_CODES } from '$lib/config.js';
     import AddressForm from '../components/AddressForm.svelte'
 	import ZipForm from '../components/ZipForm.svelte';
@@ -31,19 +31,26 @@ TODO:
     let currentView = views[currentViewIndex];
     let displayZipForm = false;
     let displayAddressForm = false;
-    let displayZipUnavailable = false;
+    
     let address = {
         name: "",
         addressLineOne: "",
         addressLineTwo: "",
         state: "LA",
-        zip: "a"
+        zip: "70119"
     };
 
     function progressThroughResponses(){
+        console.log("progressThroughResponses", currentView)
+       if (currentViewIndex >= 4) {
+            makeConfetti();
+            return;
+       } else {
+            dipsplayNextMessage();
+       }
         // If the treats are not currently available.
-        if (!TREATS_AVAILABLE) {
-            currentView = unavailableViews[0];
+            if (!TREATS_AVAILABLE) {
+        currentView = unavailableViews[0];
         }
         // Display the Zip Form
         if (currentView === "ZipForm") {
@@ -53,26 +60,21 @@ TODO:
         if (currentView === "Hooray! Tell us where to bring your delightful little treat!") {
             displayAddressForm = true;
         }
-        // If the treats are available, proceed through the views
-       if (currentViewIndex >= 4) {
-            makeConfetti();
-            return;
-       } else {
-            dipsplayNextMessage();
-       }
     }
 
     function dipsplayNextMessage() {
         currentViewIndex += 1;
         currentView = views[currentViewIndex];
+        displayZipForm = false;
+        displayAddressForm = false;
     }
 
-    function handleZipCheck() {
-        if (ZIP_CODES.includes(address.zip)){
-            displayZipForm = false;
-        } else {
-            displayZipUnavailable = true;
-        }
+    // $: currentView = views[currentViewIndex];
+
+
+    // Ensure immediate UI updates after changing displayZipForm
+    $: {
+        console.log("displayZipForm:", displayZipForm); // Debugging output
     }
 
     // TODO
@@ -82,10 +84,10 @@ TODO:
 </script>
 
 {#if displayZipForm}
-    <ZipForm bind:zip={address.zip}/>
-    <p>zip code: {address.zip}</p>
+    <ZipForm bind:zip={address.zip} handleSubmit={dipsplayNextMessage}/>
+    <p> currentViewIndex = {currentViewIndex}</p>
 {:else if displayAddressForm}
-    <AddressForm address={address}/>
+    <AddressForm {...address}/>
 {:else}
     <button on:click={progressThroughResponses}>{currentView}</button>
 {/if}
