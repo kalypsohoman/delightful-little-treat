@@ -2,13 +2,14 @@
     import { ZIP_CODES } from "$lib/config";
 	import type { MouseEventHandler } from "svelte/elements";
 
+    let buttonText = "➜"
+
     // Uses RegEx to determine if the input is a zip code.
     // Check if the value consists of 5 digits OR 
     // 5 digits followed by a hyphen and 4 digits.
     function isZipCode(zip:string) {
         return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
     }
-
 
     function validateZip() {
         // Determines if the input is a zip code
@@ -22,14 +23,13 @@
             handleSubmit();
         }
     }
-
-    let buttonText = "➜"
     
     export let zip:string;
     export let handleSubmit:Function;
 </script>
 
 <form on:submit|preventDefault={validateZip}>
-    <input bind:value={zip}/>
+    <label for="zip"></label>
+    <input name="zip" bind:value={zip}/>
     <button type="submit">{buttonText}</button>
 </form>
