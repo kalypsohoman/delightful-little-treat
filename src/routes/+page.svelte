@@ -1,6 +1,6 @@
 <!--
 TODO:
-1. pressing button at end of logic sequence triggers confetti 
+1. pressing button at end of logic sequence triggers confetti. 
 2. Pressing what's your zip brings down zipcode input.
 3. Pressing horray brings up address form.
 4. Filling out address form brings up stripe payment.
@@ -10,44 +10,69 @@ TODO:
 
 <script>
     import { TREATS_AVAILABLE , ZIP_CODES } from '$lib/config.js';
-
-    const messages = [
+    import AddressForm from '../components/AddressForm.svelte'
+	import ZipForm from '../components/ZipForm.svelte';
+    
+    const views = [
         "Would you like a delightful little treat?",
-        "If you're close we can bring you one.",
-        "What's your zip?",
+        "Let's see if we can bring you one. What neighborhood are you in?",
+        "ZipForm",
         "Hooray! Tell us where to bring your delightful little treat!",
+        "AddressForm",
         "Your treat should be there in about an hour! Yay!"
     ];
-    let currentMessageIndex = 0;
-    let currentMessage = messages[currentMessageIndex];
+
+    const unavailableViews = [
+        "Sorry but we can't bring you a treat right now.",
+        "Oh no! We can't get to your neighborhood right now :c"
+    ]
+
+    let currentViewIndex = 0;
+    let currentView = views[currentViewIndex];
     let displayZipForm = false;
     let displayAddressForm = false;
+    let displayZipUnavailable = false;
     let address = {
         name: "",
         addressLineOne: "",
         addressLineTwo: "",
-        state: "",
-        zip: ""
+        state: "LA",
+        zip: "a"
     };
 
-    function showNextMessage(){
+    function progressThroughResponses(){
         // If the treats are not currently available.
         if (!TREATS_AVAILABLE) {
-            currentMessage = "Sorry but we can't bring you a treat right now.";
+            currentView = unavailableViews[0];
         }
-        //If the user is being asked for a zip code, bring up a zip code menu
-        if (currentMessage === "What's your zip?") {
+        // Display the Zip Form
+        if (currentView === "ZipForm") {
             displayZipForm = true;
         }
-        // If the treats are available, proceed through the messages
-       if (currentMessageIndex >= 4) {
+        // Display the Address Form
+        if (currentView === "Hooray! Tell us where to bring your delightful little treat!") {
+            displayAddressForm = true;
+        }
+        // If the treats are available, proceed through the views
+       if (currentViewIndex >= 4) {
             makeConfetti();
             return;
        } else {
-            currentMessageIndex += 1;
-            currentMessage = messages[currentMessageIndex];
+            dipsplayNextMessage();
        }
+    }
 
+    function dipsplayNextMessage() {
+        currentViewIndex += 1;
+        currentView = views[currentViewIndex];
+    }
+
+    function handleZipCheck() {
+        if (ZIP_CODES.includes(address.zip)){
+            displayZipForm = false;
+        } else {
+            displayZipUnavailable = true;
+        }
     }
 
     // TODO
@@ -57,13 +82,10 @@ TODO:
 </script>
 
 {#if displayZipForm}
-    <input bind:value={address.zip} />
+    <ZipForm bind:zip={address.zip}/>
+    <p>zip code: {address.zip}</p>
 {:else if displayAddressForm}
-    <input bind:value={address.name}>
-    <input bind:value={address.addressLineOne}>
-    <input bind:value={address.addressLineTwo}>
-    <input bind:value={address.state}>
-    <input bind:value={address.zip}>
+    <AddressForm address={address}/>
 {:else}
-    <button on:click={showNextMessage}>{currentMessage}</button>
+    <button on:click={progressThroughResponses}>{currentView}</button>
 {/if}
