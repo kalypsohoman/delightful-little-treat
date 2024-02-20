@@ -1,11 +1,9 @@
 <!--
 TODO:
 1. pressing button at end of logic sequence triggers confetti. 
-2. Pressing what's your zip brings down zipcode input.
-3. Pressing horray brings up address form.
-4. Filling out address form brings up stripe payment.
-5. Back button?
-6. Issue form?
+2. Filling out address form brings up stripe payment.
+3. Back button?
+4. Issue form?
 -->
 
 <script lang="ts">
