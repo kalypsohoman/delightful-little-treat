@@ -34,9 +34,8 @@ TODO:
     
     let address = {
         name: "",
-        addressLineOne: "",
-        addressLineTwo: "",
-        state: "LA",
+        address: "",
+        state: 'LA',
         zip: "70119"
     };
 
@@ -57,7 +56,7 @@ TODO:
             displayZipForm = true;
         }
         // Display the Address Form
-        if (currentView === "Hooray! Tell us where to bring your delightful little treat!") {
+        if (currentView === "AddressForm") {
             displayAddressForm = true;
         }
     }
@@ -68,9 +67,6 @@ TODO:
         displayZipForm = false;
         displayAddressForm = false;
     }
-
-    // $: currentView = views[currentViewIndex];
-
 
     // Ensure immediate UI updates after changing displayZipForm
     $: {
@@ -85,9 +81,8 @@ TODO:
 
 {#if displayZipForm}
     <ZipForm bind:zip={address.zip} handleSubmit={dipsplayNextMessage}/>
-    <p> currentViewIndex = {currentViewIndex}</p>
 {:else if displayAddressForm}
-    <AddressForm {...address}/>
+    <AddressForm bind:address={address} handleSubmit={dipsplayNextMessage}/>
 {:else}
     <button on:click={progressThroughResponses}>{currentView}</button>
 {/if}
