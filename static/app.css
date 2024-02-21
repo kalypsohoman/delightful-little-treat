@@ -1,19 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Chilanka&family=Delius&display=swap');
 
-
 :root {
     --blue: #B4F6FF;
     --font-blue: #009CB2;
     --border-blue: #B9FFF7;
     --hover-blue: #a1ebf5; /* Slightly darker for hover effect */
-    --active-blue: #98ebf6; /* Even darker for click effect */
-    --pink: #fcd1fd;
-    --font-pink: #8c2a8e;
-    --border-pink: #fcd1fd;
-    --hover-pink: #fec9ff;
-    --active-pink: #fbbefc;
+    --active-blue: #8de4ef; /* Even darker for click effect */
     --shadow-color: #00000036;
-    --border-highlight: #ffffff;
 }
 
 body {
@@ -27,7 +20,6 @@ body {
     align-items: center;
 }
 
-
 button {
     min-height: 120px;
     max-width: 80%;
@@ -38,21 +30,36 @@ button {
     font-size: 1.25rem;
     border: none;
     border-radius: 50px;
-    box-shadow: 4px 15px 0px 0px var(--shadow-color), 0 0 0 3px var(--border-highlight), 1px 3px 0 7px var(--border-blue);
     cursor: pointer;
-    transition: background-color 150ms cubic-bezier(0, 0, 0.58, 1), transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+    box-shadow:  
+        0 0 0 3px white,
+        9px 12px 0px 12px var(--shadow-color),
+        1px 3px 0 7px var(--border-blue),
+        1px 3px 0 8px var(--shadow-color);
+    transition:
+        background-color 150ms cubic-bezier(0, 0, 0.58, 1),
+        transform 150ms cubic-bezier(0, 0, 0.58, 1),
+        box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
 }
 
 button:hover {
     background-color: var(--hover-blue);
     transform: translate(0, 2px);
-    box-shadow: 3px 12px 0px 0px var(--shadow-color), 0 0 0 3px var(--border-highlight), 1px 2px 0 7px var(--border-blue);
+    box-shadow: 
+        0 0 0 3px white,
+        7px 10px 0px 10px var(--shadow-color),
+        1px 3px 0 7px var(--border-blue),
+        1px 3px 0 8px var(--shadow-color);
 }
 
 button:active {
     background-color: var(--active-blue);
     transform: translate(0, 5px);
-    box-shadow: 2px 5px 0px 0px var(--shadow-color), 0 0 0 3px var(--border-highlight), 1px 0px 0 7px var(--border-blue);
+    box-shadow:
+        0 0 0 3px white,
+        5px 7px 0px 8px var(--shadow-color),
+        1px 3px 0 7px var(--border-blue),
+        1px 3px 0 8px var(--shadow-color);
 }
 
 ul {
@@ -66,10 +73,13 @@ form {
     min-width: 50%;
     max-width: 90%;
     margin: auto;
-    padding: 20px;
+    padding: 40px;
     border: solid 10px white;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        6px 7px 0px 3px var(--shadow-color),
+        0 0 0 1px var(--shadow-color);
 }
 
 form p {
@@ -88,43 +98,21 @@ form input {
     font-size: 16px;
     border:  solid 7px #FFD600;
     border-radius: 4px;
-    outline-color: #ffffff;
-}
-
-form input:focus {
-    /* border-blue: #ffbb00; */
-    /* box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); */
+    outline-color: white;
 }
 
 form label {
     margin-top: 12px;
     font-family: Chilanka;
     font-size: 16px;
-    color: #495057;
+    color: #000000;
 }
 
 form button {
     min-height: 65px;
     max-width: none;
-    width: 100%;
+    width: 90%;
     padding: 20px;
-    margin: auto;
-    margin-top: 20px;
-    background-color: var(--pink);
-    box-shadow: 4px 15px 0px 0px var(--shadow-color), 0 0 0 3px var(--border-highlight), 1px 3px 0 7px var(--border-pink);
-    color: white;
-    font-family: 'Chilanka', sans-serif;
-    font-size: 1.7rem;
-}
-
-form button:hover {
-    background-color: var(--hover-pink);
-    box-shadow: 3px 12px 0px 0px var(--shadow-color), 0 0 0 3px var(--border-highlight), 1px 2px 0 7px var(--border-pink);
-
-}
-
-form button:active {
-    background-color: var(--active-pink);
-    box-shadow: 2px 5px 0px 0px var(--shadow-color), 0 0 0 3px var(--border-highlight), 1px 0px 0 7px var(--border-pink);
-
+    margin: 25px;
+    margin-inline: auto;
 }
