@@ -4,13 +4,29 @@ TODO:
 2. Filling out address form brings up stripe payment.
 3. Back button?
 4. Issue form?
+5. Smaller shadow for buttons in forms.
 -->
 
 <script lang="ts">
     import { TREATS_AVAILABLE , ZIP_CODES } from '$lib/config.js';
-    import AddressForm from '../components/AddressForm.svelte'
-	import ZipForm from '../components/ZipForm.svelte';
+    import { AddressForm } from '$lib';
+	import { ZipForm } from '$lib';
     
+    //STRIPE
+    import { onMount } from 'svelte'
+    import { loadStripe, type Stripe } from '@stripe/stripe-js'
+    import { PUBLIC_STRIPE_KEY } from '$env/static/public'
+    import { EmbeddedCheckout } from '$lib'
+
+    export let data: any;
+
+    let stripe: Stripe | null = null
+
+    onMount(async () => {
+        stripe = await loadStripe(PUBLIC_STRIPE_KEY)
+    })    
+    // END OF STRIPE
+
     const views = [
         "Would you like a delightful little treat?",
         "Let's see if we can bring you one. What neighborhood are you in?",
@@ -81,5 +97,6 @@ TODO:
 {:else if displayAddressForm}
     <AddressForm bind:address={address} handleSubmit={dipsplayNextMessage}/>
 {:else}
-    <button on:click={progressThroughResponses}>{currentView}</button>
+    <EmbeddedCheckout {stripe} clientSecret={data.clientSecret}/>
+    <!-- <button on:click={progressThroughResponses}>{currentView}</button> -->
 {/if}
