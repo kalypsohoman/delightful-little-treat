@@ -1,15 +1,19 @@
 <!--
 TODO:
 1. pressing button at end of logic sequence triggers confetti. 
-2. Filling out address form brings up stripe payment.
+2. Add address verification api in AddressForm.
 3. Back button?
 4. Issue form?
+5. Notifications for when the treats are available.
+6. Add applepay and google pay as options. maybe paypal.
 -->
 
 <script lang="ts">
     import { TREATS_AVAILABLE , ZIP_CODES } from '$lib/config.js';
-    import AddressForm from '../components/AddressForm.svelte'
-	import ZipForm from '../components/ZipForm.svelte';
+    import { onMount } from 'svelte'
+    import { loadStripe } from '@stripe/stripe-js'
+    import { PUBLIC_STRIPE_KEY } from '$env/static/public'
+    import { ZipForm, AddressForm, EmbeddedCheckout } from '$lib'
     
     const views = [
         "Would you like a delightful little treat?",
@@ -17,6 +21,7 @@ TODO:
         "ZipForm",
         "Hooray! Tell us where to bring your delightful little treat!",
         "AddressForm",
+        "StripeForm",
         "Your treat should be there in about an hour! Yay!"
     ];
 
@@ -29,6 +34,7 @@ TODO:
     let currentView = views[currentViewIndex];
     let displayZipForm = false;
     let displayAddressForm = false;
+    let displayStripeForm = false;
     
     let address = {
         name: "",
@@ -56,6 +62,10 @@ TODO:
         if (currentView === "AddressForm") {
             displayAddressForm = true;
         }
+        // Display the Stripe Payment Form
+        if (currentView === "StripeForm") {
+            displayStripeForm = true;
+        }
     }
 
     function dipsplayNextMessage() {
@@ -65,21 +75,29 @@ TODO:
         displayAddressForm = false;
     }
 
-    // Ensure immediate UI updates after changing displayZipForm
-    $: {
-        console.log("displayZipForm:", displayZipForm); // Debugging output
-    }
-
     // TODO
     function makeConfetti() {
 
     }
+
+    // STRIPE SETUP
+    export let data
+
+    let stripe: any = null
+
+    onMount(async () => {
+        stripe = await loadStripe(PUBLIC_STRIPE_KEY)
+    })
 </script>
 
 {#if displayZipForm}
     <ZipForm bind:zip={address.zip} handleSubmit={dipsplayNextMessage}/>
 {:else if displayAddressForm}
     <AddressForm bind:address={address} handleSubmit={dipsplayNextMessage}/>
+{:else if displayStripeForm}
+    <EmbeddedCheckout {stripe} clientSecret={data.clientSecret}/>
 {:else}
+<EmbeddedCheckout {stripe} clientSecret={data.clientSecret}/>
+
     <button on:click={progressThroughResponses}>{currentView}</button>
 {/if}
