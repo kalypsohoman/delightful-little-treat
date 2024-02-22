@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
     import { onDestroy } from 'svelte'
     import { register } from './util'
   
