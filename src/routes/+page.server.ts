@@ -1,5 +1,5 @@
 import Stripe from 'stripe'
-import { SECRET_STRIPE_KEY, DOMAIN } from '$env/static/private'
+import { SECRET_STRIPE_KEY } from '$env/static/private';
 
 const stripe = new Stripe(SECRET_STRIPE_KEY)
 
