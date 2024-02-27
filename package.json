@@ -12,7 +12,11 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"read-treat-count": "node ./scripts/readTreatCount.cjs",
+		"update-treat-count": "node ./scripts/updateTreatCount.cjs",
+		"read-next-date": "node ./scripts/readNextDeliveryDate.cjs",
+		"update-next-date": "node ./scripts/updateNextDeliveryDate.cjs"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
