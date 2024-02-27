@@ -9,29 +9,20 @@ TODO:
 -->
 
 <script lang="ts">
+
     import { TREAT_COUNT , ZIP_CODES } from '$lib/config.js';
     import { onMount } from 'svelte'
     import { loadStripe } from '@stripe/stripe-js'
     import { PUBLIC_STRIPE_KEY } from '$env/static/public'
-    import { ZipForm, AddressForm, EmbeddedCheckout } from '$lib'
+    import { 
+        ZipForm,
+        AddressForm,
+        EmbeddedCheckout,
+        views,
+        unavailableViews,
+        currentViewIndex } from '$lib'
     
-    const views = [
-        "Would you like a delightful little treat?",
-        "Let's see if we can bring you one. What neighborhood are you in?",
-        "ZipForm",
-        "Hooray! Tell us where to bring your delightful little treat!",
-        "AddressForm",
-        "StripeForm",
-        "Your treat should be there in about an hour! Yay!"
-    ];
-
-    const unavailableViews = [
-        "Sorry but we can't bring you a treat right now.",
-        "Oh no! We can't get to your neighborhood right now :c"
-    ]
-
-    let currentViewIndex = 0;
-    let currentView = views[currentViewIndex];
+    let currentView = views[$currentViewIndex];
     let displayZipForm = false;
     let displayAddressForm = false;
     let displayStripeForm = false;
@@ -44,7 +35,7 @@ TODO:
     };
 
     function progressThroughResponses(){
-       if (currentViewIndex >= 4) {
+       if ($currentViewIndex >= 4) {
             makeConfetti();
             return;
        } else {
@@ -69,10 +60,15 @@ TODO:
     }
 
     function dipsplayNextMessage() {
-        currentViewIndex += 1;
-        currentView = views[currentViewIndex];
+        currentViewIndex.increment();
+        updateView();
+    }
+
+    function updateView() {
+        currentView = views[$currentViewIndex];
         displayZipForm = false;
         displayAddressForm = false;
+        displayStripeForm = false;
     }
 
     // TODO
@@ -97,7 +93,5 @@ TODO:
 {:else if displayStripeForm}
     <EmbeddedCheckout {stripe} clientSecret={data.clientSecret}/>
 {:else}
-<EmbeddedCheckout {stripe} clientSecret={data.clientSecret}/>
-
     <button on:click={progressThroughResponses}>{currentView}</button>
 {/if}
