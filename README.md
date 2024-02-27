@@ -23,20 +23,18 @@ Checkout the deployed website here: [delightfullittletreat.com](https://delightf
 
 Once you've created a project and installed dependencies with `npm install`, start a development server:
 
-```bash
-npm run dev
+    npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Or start the server and open the app in a new browser tab:
+
+    npm run dev -- --open
+
 
 ## Building
 
 To create a production version of the app:
 
-```bash
-npm run build
-```
+    npm run build
 
 You can preview the production build with `npm run preview`.
 
