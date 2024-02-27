@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Chilanka&family=Delius&display=swap');
 
 :root {
+    --body: #FFEC89
+    --form-highlight: #FFD600;
     --blue: #B4F6FF;
     --font-blue: #009CB2;
     --border-blue: #B9FFF7;
@@ -10,7 +12,7 @@
 }
 
 body {
-    background-color: #FFEC89;
+    background-color: var(--body);
     width: 100vw;
     margin: 0px;
     padding-top: 100px;
@@ -86,7 +88,7 @@ form p {
     font-family: Delius;
     padding: 10px;
     font-size: 16px;
-    border:  solid 7px #FFD600;
+    border:  solid 7px var(--form-highlight);
     border-radius: 4px;
     background: #98ebf600;
     margin: 0px;
@@ -96,7 +98,7 @@ form input {
     font-family: Delius;
     padding: 10px;
     font-size: 16px;
-    border:  solid 7px #FFD600;
+    border:  solid 7px var(--form-highlight);
     border-radius: 4px;
     outline-color: white;
 }
