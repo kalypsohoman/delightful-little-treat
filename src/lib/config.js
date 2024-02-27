@@ -1,4 +1,5 @@
-export const TREATS_AVAILABLE = true;
+export const TREATS_AVAILABLE = 0;
+export const NEXT_DELIVERY_DATE = new Date(2024, 2, 3);
 export const ZIP_CODES = [
     '70112',
     '70113',
@@ -8,6 +9,5 @@ export const ZIP_CODES = [
     '70119',
     '70124',
     '70125',
-    '70130',
-    'I dont see my zip.'
+    '70130'
 ]
