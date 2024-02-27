@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-// Path to the config.js file
-const configFilePath = path.join(__dirname, '../src/lib/config.js');
+// Path to the config.ts file
+const configFilePath = path.join(__dirname, '../src/lib/config.ts');
 
-// Read the current content of config.js
+// Read the current content of config.ts
 fs.readFile(configFilePath, 'utf8', (err, data) => {
   if (err) {
     console.error(`Error reading ${configFilePath}:`, err);

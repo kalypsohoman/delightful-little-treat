@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-// Path to the config.js file
-const configFilePath = path.join(__dirname, '../src/lib/config.js');
+// Path to the config.ts file
+const configFilePath = path.join(__dirname, '../src/lib/config.ts');
 
 // New value for NEXT_DELIVERY_DATE passed as a command line argument
 const newDate = process.argv[2];
