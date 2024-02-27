@@ -9,7 +9,7 @@ TODO:
 -->
 
 <script lang="ts">
-    import { TREATS_AVAILABLE , ZIP_CODES } from '$lib/config.js';
+    import { TREAT_COUNT , ZIP_CODES } from '$lib/config.js';
     import { onMount } from 'svelte'
     import { loadStripe } from '@stripe/stripe-js'
     import { PUBLIC_STRIPE_KEY } from '$env/static/public'
@@ -51,7 +51,7 @@ TODO:
             dipsplayNextMessage();
        }
         // If the treats are not currently available.
-            if (!TREATS_AVAILABLE) {
+            if (!TREAT_COUNT) {
         currentView = unavailableViews[0];
         }
         // Display the Zip Form
