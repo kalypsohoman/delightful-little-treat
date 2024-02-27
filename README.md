@@ -1,22 +1,27 @@
-# create-svelte
+# Delightful Little Treat
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Have you ever wished you could just press a button and get a delightful little treat? Now you can!
 
-## Creating a project
+    ヽ(・∀・)ﾉ
 
-If you're seeing this, you've probably already done this step. Congrats!
+<br>
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+This website has extremely minimal UI and only two options (treat or no treat) to help you not have to think that hard. All you have to do is click a button or two and fill out an address/payment form, then the treat will get delivered.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+    (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ 𝘏𝘰𝘰𝘳𝘢𝘺!!
+<br>
+Unfortunately, we can only deliver to a small area within the New Orleans area right now. Maybe we can deliver to more places in the future?
+
+    乁(☯‿☯✿)ㄏ
+
+<br>
+
+Checkout the deployed website here: [delightfullittletreat.com](https://delightfullittletreat.com)
+
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've created a project and installed dependencies with `npm install`, start a development server:
 
 ```bash
 npm run dev
@@ -27,7 +32,7 @@ npm run dev -- --open
 
 ## Building
 
-To create a production version of your app:
+To create a production version of the app:
 
 ```bash
 npm run build
@@ -35,4 +40,11 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Techstack
+* Javascript + Typescript 
+* Svelte
+* Node
+* AWS
+* Stripe
+* Google Address Verification API
