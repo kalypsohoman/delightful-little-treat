@@ -1,4 +1,4 @@
-export const TREAT_COUNT = 0;
+export const TREAT_COUNT = 200;
 export const NEXT_DELIVERY_DATE = new Date(2024, 2, 3);
 export const ZIP_CODES = [
     '70112',
