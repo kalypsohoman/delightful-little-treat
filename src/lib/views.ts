@@ -20,7 +20,7 @@ export const unavailableViews:Array<string> = [
 // Create a viewIndex object with some useful methods for navigating through the views.
 // Uses svelte's native store syntax
 function createViewIndex() {
-	const { subscribe, set, update } = writable(0);
+	const { subscribe, set, update } = writable<number>(0);
 
 	return {
 		subscribe,
@@ -32,8 +32,18 @@ function createViewIndex() {
 
 export const currentViewIndex = createViewIndex();
 
-// Creates a currentView variable that is dependent on currentViewIndex using svelte's store syntax.
+// Create an override variable to display the unavailable views
+export const currentViewOverride = writable<string | null>(null)
+
+// Creates a currentView variable that is dependent on currentViewOverride and
+// currentViewIndex using svelte's store derived method.
 export const currentView = derived(
-    currentViewIndex,
-	($currentViewIndex) => views[$currentViewIndex]
+    [currentViewIndex, currentViewOverride],
+	([$currentViewIndex, $currentViewOverride]) => {
+        if($currentViewOverride !== null) {
+            return $currentViewOverride;
+        } else {
+            return views[$currentViewIndex];
+        }
+    }
 );
