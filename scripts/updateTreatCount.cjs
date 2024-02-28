@@ -20,7 +20,7 @@ fs.readFile(configFilePath, 'utf8', (err, data) => {
   }
 
   // Replace the TREAT_COUNT value with the new value
-  const updatedData = data.replace(/(TREAT_COUNT\s*=\s*)\d+/, `$1${newTreatCount}`);
+  const updatedData = data.replace(/(TREAT_COUNT\s*:\s*number\s*=\s*)\d+/, `$1${newTreatCount}`);
 
   // Write the updated content back to config.ts
   fs.writeFile(configFilePath, updatedData, 'utf8', (err) => {

@@ -12,8 +12,8 @@ fs.readFile(configFilePath, 'utf8', (err, data) => {
   }
 
   // Use a regular expression to extract the value of TREAT_COUNT
-  const match = data.match(/TREAT_COUNT\s*=\s*(\d+)/);
-
+  const match = data.match(/TREAT_COUNT\s*:\s*number\s*=\s*(\d+)/);
+    
   if (match && match[1]) {
     console.log(`Current TREAT_COUNT: ${match[1]}`);
   } else {
