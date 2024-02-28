@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Chilanka&family=Delius&display=swap');
 
 :root {
-    --body: #fedd81;
-    --form-highlight: #FFD600;
+    --yellow: #fedd81;
+    --font-yellow: #0000007a;
+    --border-yellow: #FFD600;
+    --hover-yellow: #fcd977;
+    --active-yellow: #fed76d;
     --blue: #B4F6FF;
     --font-blue: #009CB2;
     --border-blue: #B9FFF7;
@@ -12,7 +15,7 @@
 }
 
 body {
-    background-color: var(--body);
+    background-color: var(--yellow);
     width: 100vw;
     margin: 0px;
     padding-top: 100px;
@@ -64,6 +67,35 @@ button:active {
         1px 3px 0 8px var(--shadow-color);
 }
 
+.back-button {
+    background-color: var(--yellow);
+    color: var(--font-yellow);
+    box-shadow:  
+        0 0 0 3px white,
+        9px 12px 0px 12px var(--shadow-color),
+        1px 3px 0 7px var(--border-yellow),
+        1px 3px 0 8px var(--shadow-color);
+}
+
+.back-button:hover {
+    background-color: var(--hover-yellow);
+    transform: translate(0, 2px);
+    box-shadow: 
+        0 0 0 3px white,
+        7px 10px 0px 10px var(--shadow-color),
+        1px 3px 0 7px var(--border-yellow),
+        1px 3px 0 8px var(--shadow-color);
+}
+
+.back-button:active {
+    background-color: var(--active-yellow);
+    box-shadow:
+        0 0 0 3px white,
+        5px 7px 0px 8px var(--shadow-color),
+        1px 3px 0 7px var(--border-yellow),
+        1px 3px 0 8px var(--shadow-color);
+}
+
 ul {
     list-style: none;
 }
@@ -88,7 +120,7 @@ form p {
     font-family: Delius;
     padding: 10px;
     font-size: 16px;
-    border:  solid 7px var(--form-highlight);
+    border:  solid 7px var(--border-yellow);
     border-radius: 4px;
     background: #98ebf600;
     margin: 0px;
@@ -98,7 +130,7 @@ form input {
     font-family: Delius;
     padding: 10px;
     font-size: 16px;
-    border:  solid 7px var(--form-highlight);
+    border:  solid 7px var(--border-yellow);
     border-radius: 4px;
     outline-color: white;
 }
