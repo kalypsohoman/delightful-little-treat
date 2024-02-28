@@ -1,4 +1,5 @@
 export const TREAT_COUNT: number = 200;
+export const DELIVERING_TODAY: boolean = true;
 export const NEXT_DELIVERY_DATE: Date | null = new Date(2024, 2, 3);
 export const ZIP_CODES: Array<string> = [
     '70112',
