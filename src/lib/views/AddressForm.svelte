@@ -4,8 +4,6 @@
 	let buttonText = "➜";
 	let inputName = $name;
 	let inputAddress = $address;
-	let inputState = $state;
-	let inputZip = $zip;
 
 	// Checks if the name is greater than length 0.
 	function containsValidName (name:string) {
