@@ -58,6 +58,7 @@
 
 
 <form on:submit|preventDefault={verifyForm}>
+	<h2>Yay! We can deliver to you. Tell us where to bring the treat!</h2>
 	<label for="name">Name:</label>
     <input id="name" bind:value={inputName}/>
 	<label for="address">Address:</label>
