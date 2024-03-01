@@ -26,12 +26,10 @@
     }
     
     let inputZip:string = $zip
-    export let handleSubmit:Function;
 </script>
 
 <form on:submit|preventDefault={validateZip}>
     <h2>Let's see if we can bring you one.</h2>
-    <h3>What neighborhood are you in?</h3>
     <label for="zip">Zip:</label>
     <input name="zip" bind:value={inputZip}/>
     <button type="submit">{buttonText}</button>
