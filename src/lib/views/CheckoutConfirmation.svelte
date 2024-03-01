@@ -1,6 +1,5 @@
 <script lang="ts">
-    import InitialView from "./InitialView.svelte";
-    import { activeComponent } from "$lib";
+    import { InitialView, activeComponent } from "$lib";
 </script>
 
 <form>
