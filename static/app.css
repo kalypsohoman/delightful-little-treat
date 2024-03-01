@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Chilanka&family=Delius&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ribeye&family=Hachi+Maru+Pop&family=Cherry+Swash&family=Chilanka&family=Delius&display=swap');
 
 :root {
     --yellow: #fedd81;
@@ -8,6 +8,7 @@
     --active-yellow: #fed76d;
     --blue: #B4F6FF;
     --font-blue: #009CB2;
+    --font-dark-blue: #145b6d;
     --border-blue: #B9FFF7;
     --hover-blue: #a1ebf5; /* Slightly darker for hover effect */
     --active-blue: #8de4ef; /* Even darker for click effect */
@@ -16,18 +17,41 @@
 
 body {
     background-color: var(--yellow);
-    width: 100vw;
     margin: 0px;
-    padding-top: 100px;
+}
+
+h2 {
+    color: var(--font-dark-blue);
+    font-family: 'Ribeye', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.page {
+    display: grid;
+    grid-template-rows: 120px 1fr;
+    justify-items: center;
+    align-items: start;
+    gap: 50px;
+    max-width: 100vw;
+    min-height: 100vh;
+  }
+
+.page > *:only-child {
+grid-row: 2 / 2; /* Place the only child in the second row */
+}
+
+row {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 button {
     min-height: 120px;
-    max-width: 80%;
+    width: 80%;
+    max-width: 400px;
     padding: 20px;
     background-color: var(--blue);
     color: var(--font-blue);
@@ -67,7 +91,9 @@ button:active {
         1px 3px 0 8px var(--shadow-color);
 }
 
-.back-button {
+/* .back-button {
+    width: 100px;
+    height: 100px;
     background-color: var(--yellow);
     color: var(--font-yellow);
     box-shadow:  
@@ -94,6 +120,26 @@ button:active {
         5px 7px 0px 8px var(--shadow-color),
         1px 3px 0 7px var(--border-yellow),
         1px 3px 0 8px var(--shadow-color);
+} */
+
+.back-button {
+    color: white;
+    font-size: 5rem;
+    box-shadow: none;
+    background-color: transparent;
+    transform: none;
+    min-width: 0;
+    min-height: 0;
+}
+
+.back-button:hover {
+    background-color: transparent;
+    box-shadow:none
+}
+
+.back-button:active {
+    background-color: transparent;
+    box-shadow:none
 }
 
 ul {
@@ -101,12 +147,12 @@ ul {
 }
 
 form {
+    background-color: #8de4ef;
     display: flex;
     flex-direction: column;
     gap: 0px;
-    min-width: 50%;
+    width: 400px;
     max-width: 90%;
-    margin: auto;
     padding: 40px;
     border: solid 10px white;
     border-radius: 8px;
@@ -148,5 +194,5 @@ form button {
     width: 90%;
     padding: 20px;
     margin: 25px;
-    margin-inline: auto;
+    margin-inline: 40px;
 }
