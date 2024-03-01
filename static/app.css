@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ribeye&family=Hachi+Maru+Pop&family=Cherry+Swash&family=Chilanka&family=Delius&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Ribeye&family=Hachi+Maru+Pop&family=Cherry+Swash&family=Chilanka&family=Delius&display=swap');
 
 :root {
     --yellow: #fedd81;
@@ -18,23 +18,30 @@
 body {
     background-color: var(--yellow);
     margin: 0px;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 h2 {
     color: var(--font-dark-blue);
-    font-family: 'Ribeye', sans-serif;
+    font-family: 'Delius Swash Caps', sans-serif;
+    font-weight: 400;
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    background: var(--blue);
+    border-radius: 16px;
+    border: solid #ffffff75 6px;
+    padding: 20px;
 }
 
 .page {
     display: grid;
-    grid-template-rows: 120px 1fr;
+    grid-template-rows: 20px 1fr;
     justify-items: center;
     align-items: start;
     gap: 50px;
-    max-width: 100vw;
-    min-height: 100vh;
+    max-width: 100%;
+    min-height: 100%;
   }
 
 .page > *:only-child {
@@ -42,8 +49,9 @@ grid-row: 2 / 2; /* Place the only child in the second row */
 }
 
 row {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
     align-items: center;
     justify-content: center;
 }
@@ -151,9 +159,9 @@ form {
     display: flex;
     flex-direction: column;
     gap: 0px;
-    width: 400px;
-    max-width: 90%;
+    width: min(500px, 80%);
     padding: 40px;
+    box-sizing: border-box;
     border: solid 10px white;
     border-radius: 8px;
     box-shadow: 
@@ -166,9 +174,9 @@ form p {
     font-family: Delius;
     padding: 10px;
     font-size: 16px;
-    border:  solid 7px var(--border-yellow);
+    border: solid 7px var(--blue);
     border-radius: 4px;
-    background: #98ebf600;
+    background: #ffffff24;
     margin: 0px;
 }
 
@@ -176,7 +184,7 @@ form input {
     font-family: Delius;
     padding: 10px;
     font-size: 16px;
-    border:  solid 7px var(--border-yellow);
+    border: solid 7px var(--blue);
     border-radius: 4px;
     outline-color: white;
 }
@@ -194,5 +202,5 @@ form button {
     width: 90%;
     padding: 20px;
     margin: 25px;
-    margin-inline: 40px;
+    margin-inline: auto;
 }
