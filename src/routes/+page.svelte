@@ -49,10 +49,6 @@ TODO:
     //     }
     // }
 
-    // // TODO
-    // function makeConfetti() {
-    // }
-
     // // STRIPE SETUP
     // export let data
 
@@ -61,7 +57,6 @@ TODO:
     // onMount(async () => {
     //     stripe = await loadStripe(PUBLIC_STRIPE_KEY)
     // })
-
     activeComponent.set(InitialView)
 </script>
 
