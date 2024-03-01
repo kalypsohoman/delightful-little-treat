@@ -1,13 +1,13 @@
-
 <script lang=ts>
-    import {views, currentViewIndex} from '$lib';
+    import { fly } from 'svelte/transition';
 
 </script>
 
-{ #if $currentViewIndex === (views.length - 1) }
-    <button class="back-button" on:click={currentViewIndex.reset}>⌂</button>
-{ :else if $currentViewIndex !== 0}
-    <button class="back-button" on:click={currentViewIndex.decrement}>←</button>
-{ /if }
 
-<slot />
+<div 
+  class="page"
+  in:fly={{ y: 200, duration: 500 }}
+  out:fly={{ y: -200, duration: 500 }}
+    >
+  <slot />
+</div>
