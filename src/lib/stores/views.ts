@@ -18,7 +18,7 @@ function createViewArray() {
 		subscribe,
 		push: (newView: View) => update(currentViews => [...currentViews, newView]),
         pop: () => update(currentViews => currentViews.slice(0, -1)),
-		reset: () => set([])
+		reset: () => update(currentViews => currentViews.slice(0, 1))
 	};
 }
 
