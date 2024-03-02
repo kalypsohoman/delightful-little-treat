@@ -1,6 +1,10 @@
 <script lang="ts">
-	import { activeComponent, InitialView } from '$lib';
-    activeComponent.set(InitialView)
+	import { InitialView, views } from '$lib';
+    views.push({component: InitialView, props: null})
 </script>
 
-<svelte:component this={$activeComponent} />
+{#each $views as { component, props }, index}
+    <div class="page">
+        <svelte:component this={component} {...props} />
+    </div>
+{/each}

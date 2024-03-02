@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { DontWantATreat, ZipForm, activeComponent, views } from "$lib";
+    import { DontWantATreat, ZipForm, views } from "$lib";
 </script>
 
 <div></div>
