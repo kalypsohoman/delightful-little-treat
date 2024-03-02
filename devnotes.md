@@ -1,5 +1,12 @@
 # notes.txt
 
-* I'm in the middle of trying to rework the site to have different components that function as the different pages
-* Each page should have a button that summons the next page while possibly destroying itself, or possibly just snap scrolling down,
-* eventually I want to make use of the browser's History API to aid in navigation.
+TODO:
+1. pressing button at end of logic sequence triggers confetti. 
+2. Add address verification api in AddressForm.
+3. Add tests.
+4. Issue form?
+5. Notifications for when the treats are available.
+6. Add applepay and google pay as options. maybe paypal.
+7. Need to fix the address form to display properly. It seems like the imports aren't working properly for the client secret and the prop 'stripe'
+
+
