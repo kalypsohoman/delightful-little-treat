@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AddressForm, zip, activeComponent, ZIP_CODES } from "$lib";
+	import { AddressForm, zip, views, ZIP_CODES } from "$lib";
 
     let buttonText = "➜"
 
@@ -21,7 +21,7 @@
         // Proceeds to the next view
         } else {
             zip.set(inputZip)
-            activeComponent.set(AddressForm)
+            views.push({component: AddressForm, props: null})
         }
     }
     
