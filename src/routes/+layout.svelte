@@ -1,8 +1,6 @@
 <script lang=ts>
     import { fly } from 'svelte/transition';
-
 </script>
-
 
 <div 
   class="page"
