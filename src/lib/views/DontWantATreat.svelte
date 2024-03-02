@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { InitialView, activeComponent } from "$lib";
+    import { views } from "$lib";
 </script>
 
 <form>
     <h2>Well, come back when you want a little treat.</h2>
-    <button type="button" on:click={() => activeComponent.set(InitialView)}>↩</button>
+    <button type="button" on:click={views.reset}>↩</button>
 </form>
