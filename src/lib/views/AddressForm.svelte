@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { name, address, state, zip, activeComponent, EmbeddedCheckout } from '$lib';
+	import { name, address, state, zip, EmbeddedCheckout, views } from '$lib';
 
 	let buttonText = "➜";
 	let inputName = $name;
@@ -50,7 +50,7 @@
 			// These if statements are nested so the button text will alert
 			// the user of an invalid name before an invalid address input. 
 			if (containsValidAddress(inputAddress)){
-				activeComponent.set(EmbeddedCheckout);
+				views.push({component: EmbeddedCheckout, props: null})
 			}
 		}
     }
