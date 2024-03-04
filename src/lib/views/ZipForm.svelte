@@ -11,7 +11,6 @@
     }
 
     function validateZip() {
-        console.log(inputZip)
         // Determines if the input is a zip code
         if (!isZipCode(inputZip)) {
             buttonText = "I don't think that's a real zip code (｡_｡;)"

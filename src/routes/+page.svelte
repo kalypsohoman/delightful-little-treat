@@ -19,7 +19,6 @@
 
 <div class="main">
     {#if $noTreatClicked}
-        {console.log("noTreatClicked true")}
         <div class="page" id={"InitialView"}>
             <InitialView />
         </div>
