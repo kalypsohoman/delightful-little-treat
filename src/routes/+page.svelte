@@ -15,8 +15,10 @@
     }
 </script>
 
-{#each $views as { id, component, props }}
-    <div class="page" id={id} use:scrollToNewPage={id}>
-        <svelte:component this={component} {...props} />
-    </div>
-{/each}
+<div class="main">
+    {#each $views as { id, component, props }}
+        <div class="page" id={id} use:scrollToNewPage={id}>
+            <svelte:component this={component} {...props} />
+        </div>
+    {/each}
+</div>
