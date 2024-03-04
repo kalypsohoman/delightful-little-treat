@@ -17,7 +17,15 @@ function createViewArray() {
 
 	return {
 		subscribe,
-		push: (newView: View) => update(currentViews => [...currentViews, newView]),
+		push: (newView: View) => {
+            update(currentViews => {
+                // Check if newView is already in currentViews to prevent duplicates
+                if (!currentViews.some(view => view.id === newView.id)) {
+                    return [...currentViews, newView];
+                }
+                return currentViews; // Return currentViews unchanged if newView is already included
+            });
+        },
         pop: () => update(currentViews => currentViews.slice(0, -1)),
 		reset: () => update(currentViews => currentViews.slice(0, 1))
 	};
