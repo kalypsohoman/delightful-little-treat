@@ -22,6 +22,80 @@ body {
     min-height: 100vh;
 }
 
+.main {
+    scroll-snap-type: y mandatory;	
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+}
+
+.page {
+    display: grid;
+    grid-template-rows: 20px 1fr;
+    justify-items: center;
+    align-items: start;
+    gap: 50px;
+    max-width: 100%;
+    min-height: 100vh;
+
+  }
+
+.page > *:only-child {
+grid-row: 2 / 2; /* Place the only child in the second row */
+}
+
+
+form {
+    background-color: #8de4ef;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: min(500px, 80%);
+    padding: min(7vw, 40px);
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    border: solid 10px white;
+    border-radius: 8px;
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        6px 7px 0px 3px var(--shadow-color),
+        0 0 0 1px var(--shadow-color);
+}
+
+form p {
+    font-family: Delius;
+    padding: 10px;
+    font-size: 16px;
+    border: solid 7px var(--blue);
+    border-radius: 4px;
+    background: #ffffff24;
+    margin: 0px;
+}
+
+form input {
+    font-family: Delius;
+    padding: 10px;
+    font-size: 16px;
+    border: solid 7px var(--blue);
+    border-radius: 4px;
+    outline-color: white;
+}
+
+form label {
+    margin-top: 12px;
+    font-family: Chilanka;
+    font-size: 16px;
+    color: #000000;
+}
+
+form button {
+    min-height: 65px;
+    max-width: none;
+    width: 90%;
+    padding: 20px;
+    margin: 25px;
+    margin-inline: auto;
+}
+
 h2 {
     color: var(--font-dark-blue);
     font-family: 'Delius Swash Caps', sans-serif;
@@ -35,19 +109,6 @@ h2 {
     margin: min(2vw, 100px);
 }
 
-.page {
-    display: grid;
-    grid-template-rows: 20px 1fr;
-    justify-items: center;
-    align-items: start;
-    gap: 50px;
-    max-width: 100%;
-    min-height: 100vh;
-  }
-
-.page > *:only-child {
-grid-row: 2 / 2; /* Place the only child in the second row */
-}
 
 row {
     display: grid;
@@ -100,37 +161,6 @@ button:active {
         1px 3px 0 8px var(--shadow-color);
 }
 
-/* .back-button {
-    width: 100px;
-    height: 100px;
-    background-color: var(--yellow);
-    color: var(--font-yellow);
-    box-shadow:  
-        0 0 0 3px white,
-        9px 12px 0px 12px var(--shadow-color),
-        1px 3px 0 7px var(--border-yellow),
-        1px 3px 0 8px var(--shadow-color);
-}
-
-.back-button:hover {
-    background-color: var(--hover-yellow);
-    transform: translate(0, 2px);
-    box-shadow: 
-        0 0 0 3px white,
-        7px 10px 0px 10px var(--shadow-color),
-        1px 3px 0 7px var(--border-yellow),
-        1px 3px 0 8px var(--shadow-color);
-}
-
-.back-button:active {
-    background-color: var(--active-yellow);
-    box-shadow:
-        0 0 0 3px white,
-        5px 7px 0px 8px var(--shadow-color),
-        1px 3px 0 7px var(--border-yellow),
-        1px 3px 0 8px var(--shadow-color);
-} */
-
 .back-button {
     color: white;
     font-size: 5rem;
@@ -153,56 +183,4 @@ button:active {
 
 ul {
     list-style: none;
-}
-
-form {
-    background-color: #8de4ef;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    width: min(500px, 80%);
-    padding: min(7vw, 40px);
-    margin-bottom: 40px;
-    box-sizing: border-box;
-    border: solid 10px white;
-    border-radius: 8px;
-    box-shadow: 
-        0 4px 6px rgba(0, 0, 0, 0.1),
-        6px 7px 0px 3px var(--shadow-color),
-        0 0 0 1px var(--shadow-color);
-}
-
-form p {
-    font-family: Delius;
-    padding: 10px;
-    font-size: 16px;
-    border: solid 7px var(--blue);
-    border-radius: 4px;
-    background: #ffffff24;
-    margin: 0px;
-}
-
-form input {
-    font-family: Delius;
-    padding: 10px;
-    font-size: 16px;
-    border: solid 7px var(--blue);
-    border-radius: 4px;
-    outline-color: white;
-}
-
-form label {
-    margin-top: 12px;
-    font-family: Chilanka;
-    font-size: 16px;
-    color: #000000;
-}
-
-form button {
-    min-height: 65px;
-    max-width: none;
-    width: 90%;
-    padding: 20px;
-    margin: 25px;
-    margin-inline: auto;
 }
