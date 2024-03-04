@@ -1,6 +1,9 @@
 import { writable } from "svelte/store";
 import { type ComponentType } from "svelte";
 
+// Define a boolean to keep track of if the user clicked that they dont want a treat
+export let noTreatClicked = writable<boolean>(false);
+
 // Define a generic type for props
 type SvelteProps = Record<string, any> | null;
 
