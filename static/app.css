@@ -23,6 +23,7 @@ body {
 }
 
 .main {
+    height: 100vh;
     scroll-snap-type: y mandatory;	
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
@@ -36,7 +37,7 @@ body {
     gap: 50px;
     max-width: 100%;
     min-height: 100vh;
-
+    scroll-snap-align: start;
   }
 
 .page > *:only-child {
