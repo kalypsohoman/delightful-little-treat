@@ -21,7 +21,7 @@
         // Proceeds to the next view
         } else {
             zip.set(inputZip)
-            views.push({component: AddressForm, props: null})
+            views.push({ id: "AddressForm", component: AddressForm, props: null })
         }
     }
     

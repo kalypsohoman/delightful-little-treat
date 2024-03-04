@@ -50,7 +50,7 @@
 			// These if statements are nested so the button text will alert
 			// the user of an invalid name before an invalid address input. 
 			if (containsValidAddress(inputAddress)){
-				views.push({component: EmbeddedCheckout, props: null})
+				views.push({id: "EmbeddedCheckout", component: EmbeddedCheckout, props: null})
 			}
 		}
     }
