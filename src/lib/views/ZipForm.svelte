@@ -31,6 +31,6 @@
 <form on:submit|preventDefault={validateZip}>
     <h2>Let's see if we can bring you one.</h2>
     <label for="zip">Zip:</label>
-    <input name="zip" bind:value={inputZip}/>
+    <input id="zip" autocomplete="postal-code" bind:value={inputZip}/>
     <button type="submit">{buttonText}</button>
 </form>
