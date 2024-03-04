@@ -6,8 +6,9 @@ type SvelteProps = Record<string, any> | null;
 
 // Define the 'View' type
 export type View = {
-  component: ComponentType;
-  props: SvelteProps;
+  id: string,
+  component: ComponentType,
+  props: SvelteProps
 };
 
 // Set up a function to create a views array with custom methods
