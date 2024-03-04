@@ -5,7 +5,7 @@
   import { onMount } from 'svelte'
   import { loadStripe } from '@stripe/stripe-js'
   import { PUBLIC_STRIPE_KEY } from '$env/static/public'
-  import { Elements, PaymentElement, LinkAuthenticationElement, Address } from 'svelte-stripe'
+  import { Elements, PaymentElement } from 'svelte-stripe'
 
   let stripe = null
   let clientSecret = null
@@ -59,9 +59,7 @@
   }
 </script>
 
-{#if error}
-  <p class="error">{error.message} Please try again.</p>
-{/if}
+
 
 {#if clientSecret}
   <Elements
@@ -74,10 +72,13 @@
     bind:elements
   >
     <form on:submit|preventDefault={submit}>
-      <LinkAuthenticationElement />
-      <PaymentElement />
-      <Address mode="billing" />
+      {#if error}
+        <h2 class="error">{error.message} Please try again.</h2>
+      {:else}
+        <h2>Checkout</h2>
+      {/if} 
 
+      <PaymentElement />
       <button disabled={processing}>
         {#if processing}
           Processing...
@@ -88,14 +89,16 @@
     </form>
   </Elements>
 {:else}
-  Loading...
+  <form>
+    <h2>Loading...</h2>
+  </form>
 {/if}
 
 <style>
-  .error {
+  /* .error {
     color: tomato;
     margin: 2rem 0 0;
-  }
+  } */
 
   form {
     gap: 10px;
