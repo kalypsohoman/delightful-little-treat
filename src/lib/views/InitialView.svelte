@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { DontWantATreat, ZipForm, views, noTreatClicked } from "$lib";
+    import { ZipForm, views, noTreatClicked } from "$lib";
 </script>
 
 <div></div>
