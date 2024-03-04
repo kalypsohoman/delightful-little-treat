@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { name, address, state, zip, EmbeddedCheckout, views } from '$lib';
+	import { name, address, state, zip, StripeCheckout, views } from '$lib';
+	import { onMount } from 'svelte'
+	import { loadStripe, type Stripe } from '@stripe/stripe-js'
+	import { PUBLIC_STRIPE_KEY } from '$env/static/public'
 
 	let buttonText = "➜";
 	let inputName = $name;
@@ -14,6 +17,12 @@
 			return true;
 		}
 	}
+
+	// let stripe: Stripe | null = null
+
+	// onMount(async () => {
+	// 	stripe = await loadStripe(PUBLIC_STRIPE_KEY)
+	// })
 
 	// let validationResponse = null;
 
@@ -50,7 +59,7 @@
 			// These if statements are nested so the button text will alert
 			// the user of an invalid name before an invalid address input. 
 			if (containsValidAddress(inputAddress)){
-				views.push({id: "EmbeddedCheckout", component: EmbeddedCheckout, props: null})
+				views.push({id: "StripeCheckout", component: StripeCheckout, props: null})
 			}
 		}
     }
@@ -60,12 +69,12 @@
 <form on:submit|preventDefault={verifyForm}>
 	<h2>Yay! We can deliver to you. Tell us where to bring the treat!</h2>
 	<label for="name">Name:</label>
-    <input id="name" bind:value={inputName}/>
+    <input id="name" autocomplete="name" bind:value={inputName}/>
 	<label for="address">Address:</label>
-    <input id="address" bind:value={inputAddress}/>
+    <input id="address" autocomplete="street-address" bind:value={inputAddress}/>
 	<label for="state">State:</label>
-	<p>{$state}</p>
+	<input disabled={true} id="state" value={$state}/>
 	<label for="zip">Zip:</label>
-	<p>{$zip}</p>
+	<input disabled={true} id="zip" value={$zip}/>
 	<button type="submit">{buttonText}</button>
 </form>
