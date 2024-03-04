@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { InitialView, views, noTreatClicked } from '$lib';
+	import { InitialView, views, noTreatClicked, StripeCheckout } from '$lib';
 	import DontWantATreat from '$lib/views/DontWantATreat.svelte';
     
     // Initialize the InitialView by adding it to the views array
@@ -15,7 +15,6 @@
 			destroy(){} // the node has been removed from the DOM}
         }
     }
-
 </script>
 
 <div class="main">
