@@ -53,8 +53,8 @@
       error = result.error
       processing = false
     } else {
-      // payment succeeded, redirect to "thank you" page
-      goto('/examples/payment-element/thanks')
+      // payment succeeded, redirect to "hooray" view
+      goto('/hooray')
     }
   }
 </script>
